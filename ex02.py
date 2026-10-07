@@ -11,3 +11,8 @@ model = KNeighborsClassifier(n_neighbors=5)              # KNN: ask the 5 neares
 model.fit(X_train, y_train)                              # learn from the training flowers
 
 print("Accuracy:", model.score(X_test, y_test))
+
+species = ["setosa", "versicolor", "virginica"]          # the 3 species names
+new_flower = [[5.1, 3.5, 1.4, 0.2]]                      # a new flower's 4 measurements
+answer = model.predict(new_flower)[0]                    # ask the model (returns 0, 1 or 2)
+print("This flower is:", species[answer])
